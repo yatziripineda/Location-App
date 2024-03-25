@@ -59,23 +59,38 @@ struct NewAlarmView: View {
                             Text("Sound")
                         }
                     }
-                    Section(header: Text("Select")) {
+                    
                         if TypeAlarm == 0{
-                            ForEach(weathers, id: \.self) { weather in
-                                WeatherRow(weather: weather, isSelected: self.selectedWeather == weather)
-                                    .onTapGesture {
-                                        self.selectedWeather = weather
-                                    }
-                                
+                            Section(header: Text("Select")) {
+                                ForEach(weathers, id: \.self) { weather in
+                                    WeatherRow(weather: weather, isSelected: self.selectedWeather == weather)
+                                        .onTapGesture {
+                                            self.selectedWeather = weather
+                                        }
+                                    
+                                }
                             }
                         }else{
-                            LocationView()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(height: 400)
+                            NavigationLink(destination: MapSearchView()) {
+                                HStack {
+                                    Text("Where do you want to go?")
+                                        .foregroundColor(.gray)
+                                    Spacer()
+                                    Image(systemName: "magnifyingglass")
+                                        .foregroundColor(.gray)
+                                        .padding()
+                                }
+                                .padding(12)
+                                .background(.gray.opacity(0.1))
+                                .cornerRadius(8)
+                                .foregroundColor(.primary)
+                           
                         }
-                    }
+                        }
+                    
                     
                 }
+//                .scrollContentBackground(.hidden)
                 ZStack{
                     Rectangle()
                         .foregroundColor(.blue)
@@ -96,9 +111,9 @@ struct NewAlarmView: View {
                 .navigationTitle("New Alarm")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
-                .onTapGesture {
-                    hideKeyboard()
-                }
+//                .onTapGesture {
+//                    hideKeyboard()
+//                }
             
         }
     }

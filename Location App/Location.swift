@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import MapKit
 
-struct Location: View {
+struct LocationView: View {
+    @StateObject private var viewModel = LocationModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Map(coordinateRegion: $viewModel.region , showsUserLocation: true)
+           .ignoresSafeArea()
+           .accentColor(Color(.systemPink))
+           .onAppear{
+               viewModel.checkIfLocationServicesIsEnabled()
+           }
     }
 }
 
 #Preview {
-    Location()
+    LocationView()
 }

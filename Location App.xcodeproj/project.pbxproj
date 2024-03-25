@@ -7,19 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		782359B22BA9A591003A9E5E /* ItemsContainer .swift in Sources */ = {isa = PBXBuildFile; fileRef = 782359B12BA9A591003A9E5E /* ItemsContainer .swift */; };
+		782359B82BA9A62D003A9E5E /* Default_Categories in Sources */ = {isa = PBXBuildFile; fileRef = 782359B72BA9A62D003A9E5E /* Default_Categories */; };
+		782359BA2BA9A6D1003A9E5E /* DefaultsJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782359B92BA9A6D1003A9E5E /* DefaultsJSON.swift */; };
+		783BAD912BA8AF9E00A55CC8 /* NewAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783BAD902BA8AF9E00A55CC8 /* NewAlarmView.swift */; };
+		783BAD932BA8B59600A55CC8 /* SoundsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783BAD922BA8B59600A55CC8 /* SoundsView.swift */; };
+		783BAD952BA8BC8000A55CC8 /* WeatherRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783BAD942BA8BC8000A55CC8 /* WeatherRow.swift */; };
+		785EE3522B9E23AE00C35D7E /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785EE3512B9E23AE00C35D7E /* LocationModel.swift */; };
+		785EE3552B9E2FE500C35D7E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785EE3542B9E2FE500C35D7E /* Location.swift */; };
 		788D15282B15DF69008EE3E0 /* Location_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788D15272B15DF69008EE3E0 /* Location_AppApp.swift */; };
 		788D152A2B15DF69008EE3E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788D15292B15DF69008EE3E0 /* ContentView.swift */; };
 		788D152C2B15DF6A008EE3E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788D152B2B15DF6A008EE3E0 /* Assets.xcassets */; };
 		788D15302B15DF6A008EE3E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788D152F2B15DF6A008EE3E0 /* Preview Assets.xcassets */; };
+		788D15382B1FA5E5008EE3E0 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788D15372B1FA5E5008EE3E0 /* ItemModel.swift */; };
+		78D3857F2BAC379E00624FDF /* WeatherSruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D3857E2BAC379E00624FDF /* WeatherSruct.swift */; };
+		78D385CB2BAD86DF00624FDF /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D385CA2BAD86DF00624FDF /* LocationService.swift */; };
+		78D385CE2BAD884A00624FDF /* settleUpLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D385CD2BAD884A00624FDF /* settleUpLocation.swift */; };
+		78D385D02BAD8A4300624FDF /* SearchPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D385CF2BAD8A4300624FDF /* SearchPointView.swift */; };
+		78D385D22BAD8C8B00624FDF /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D385D12BAD8C8B00624FDF /* MapSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		782359B12BA9A591003A9E5E /* ItemsContainer .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemsContainer .swift"; sourceTree = "<group>"; };
+		782359B72BA9A62D003A9E5E /* Default_Categories */ = {isa = PBXFileReference; explicitFileType = text.json; path = Default_Categories; sourceTree = "<group>"; };
+		782359B92BA9A6D1003A9E5E /* DefaultsJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsJSON.swift; sourceTree = "<group>"; };
+		783BAD902BA8AF9E00A55CC8 /* NewAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAlarmView.swift; sourceTree = "<group>"; };
+		783BAD922BA8B59600A55CC8 /* SoundsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundsView.swift; sourceTree = "<group>"; };
+		783BAD942BA8BC8000A55CC8 /* WeatherRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRow.swift; sourceTree = "<group>"; };
+		785EE3512B9E23AE00C35D7E /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
+		785EE3532B9E2A3900C35D7E /* Location-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Location-App-Info.plist"; sourceTree = SOURCE_ROOT; };
+		785EE3542B9E2FE500C35D7E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		788D15242B15DF69008EE3E0 /* Location App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Location App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		788D15272B15DF69008EE3E0 /* Location_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_AppApp.swift; sourceTree = "<group>"; };
 		788D15292B15DF69008EE3E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		788D152B2B15DF6A008EE3E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		788D152D2B15DF6A008EE3E0 /* Location_App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Location_App.entitlements; sourceTree = "<group>"; };
 		788D152F2B15DF6A008EE3E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		788D15372B1FA5E5008EE3E0 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
+		78D3857E2BAC379E00624FDF /* WeatherSruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSruct.swift; sourceTree = "<group>"; };
+		78D385CA2BAD86DF00624FDF /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		78D385CD2BAD884A00624FDF /* settleUpLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settleUpLocation.swift; sourceTree = "<group>"; };
+		78D385CF2BAD8A4300624FDF /* SearchPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPointView.swift; sourceTree = "<group>"; };
+		78D385D12BAD8C8B00624FDF /* MapSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		782359B42BA9A5EB003A9E5E /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				782359B92BA9A6D1003A9E5E /* DefaultsJSON.swift */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		788D151B2B15DF69008EE3E0 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +91,16 @@
 			children = (
 				788D15272B15DF69008EE3E0 /* Location_AppApp.swift */,
 				788D15292B15DF69008EE3E0 /* ContentView.swift */,
-				788D152B2B15DF6A008EE3E0 /* Assets.xcassets */,
-				788D152D2B15DF6A008EE3E0 /* Location_App.entitlements */,
+				783BAD902BA8AF9E00A55CC8 /* NewAlarmView.swift */,
+				78D385CC2BAD87B800624FDF /* Location Type  */,
+				785EE3542B9E2FE500C35D7E /* Location.swift */,
+				783BAD942BA8BC8000A55CC8 /* WeatherRow.swift */,
+				783BAD922BA8B59600A55CC8 /* SoundsView.swift */,
+				788D15362B1FA5CF008EE3E0 /* Models */,
 				788D152E2B15DF6A008EE3E0 /* Preview Content */,
+				785EE3532B9E2A3900C35D7E /* Location-App-Info.plist */,
+				788D152D2B15DF6A008EE3E0 /* Location_App.entitlements */,
+				788D152B2B15DF6A008EE3E0 /* Assets.xcassets */,
 			);
 			path = "Location App";
 			sourceTree = "<group>";
@@ -67,6 +111,46 @@
 				788D152F2B15DF6A008EE3E0 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		788D15362B1FA5CF008EE3E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				782359B72BA9A62D003A9E5E /* Default_Categories */,
+				788D15372B1FA5E5008EE3E0 /* ItemModel.swift */,
+				782359B12BA9A591003A9E5E /* ItemsContainer .swift */,
+				78D385C92BAD869F00624FDF /* LocationFolder */,
+				78D3857D2BAC376E00624FDF /* WeatherModel */,
+				782359B42BA9A5EB003A9E5E /* Json */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		78D3857D2BAC376E00624FDF /* WeatherModel */ = {
+			isa = PBXGroup;
+			children = (
+				78D3857E2BAC379E00624FDF /* WeatherSruct.swift */,
+			);
+			path = WeatherModel;
+			sourceTree = "<group>";
+		};
+		78D385C92BAD869F00624FDF /* LocationFolder */ = {
+			isa = PBXGroup;
+			children = (
+				785EE3512B9E23AE00C35D7E /* LocationModel.swift */,
+				78D385CA2BAD86DF00624FDF /* LocationService.swift */,
+			);
+			path = LocationFolder;
+			sourceTree = "<group>";
+		};
+		78D385CC2BAD87B800624FDF /* Location Type  */ = {
+			isa = PBXGroup;
+			children = (
+				78D385CD2BAD884A00624FDF /* settleUpLocation.swift */,
+				78D385CF2BAD8A4300624FDF /* SearchPointView.swift */,
+				78D385D12BAD8C8B00624FDF /* MapSearchView.swift */,
+			);
+			path = "Location Type ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +223,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				782359BA2BA9A6D1003A9E5E /* DefaultsJSON.swift in Sources */,
+				785EE3522B9E23AE00C35D7E /* LocationModel.swift in Sources */,
+				78D385D02BAD8A4300624FDF /* SearchPointView.swift in Sources */,
+				783BAD932BA8B59600A55CC8 /* SoundsView.swift in Sources */,
+				782359B82BA9A62D003A9E5E /* Default_Categories in Sources */,
+				782359B22BA9A591003A9E5E /* ItemsContainer .swift in Sources */,
+				788D15382B1FA5E5008EE3E0 /* ItemModel.swift in Sources */,
+				78D3857F2BAC379E00624FDF /* WeatherSruct.swift in Sources */,
+				785EE3552B9E2FE500C35D7E /* Location.swift in Sources */,
+				78D385CE2BAD884A00624FDF /* settleUpLocation.swift in Sources */,
 				788D152A2B15DF69008EE3E0 /* ContentView.swift in Sources */,
+				78D385CB2BAD86DF00624FDF /* LocationService.swift in Sources */,
 				788D15282B15DF69008EE3E0 /* Location_AppApp.swift in Sources */,
+				78D385D22BAD8C8B00624FDF /* MapSearchView.swift in Sources */,
+				783BAD912BA8AF9E00A55CC8 /* NewAlarmView.swift in Sources */,
+				783BAD952BA8BC8000A55CC8 /* WeatherRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +372,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Location-App-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -289,7 +390,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "yatziripineda.Location-App";
+				PRODUCT_BUNDLE_IDENTIFIER = atziripineda.deforestacion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
@@ -312,6 +413,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Location-App-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -327,7 +431,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "yatziripineda.Location-App";
+				PRODUCT_BUNDLE_IDENTIFIER = atziripineda.deforestacion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
