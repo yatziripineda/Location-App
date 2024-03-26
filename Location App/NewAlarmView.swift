@@ -48,25 +48,27 @@ struct NewAlarmView: View {
                     Text("Weather").tag(0)
                     Text("Location").tag(1)
                 }.pickerStyle(SegmentedPickerStyle())
+                    .padding(.vertical)
 //                ScrollView {
                     VStack{
                         if TypeAlarm != 0{
-                            
                             NavigationLink(destination: MapSearchView(TextEndLocation: $TextEndLocation, SelectEndLocation: $SelectEndLocation)) {
                                 HStack {
-                                    Text(TextEndLocation)
-                                        .foregroundColor(.gray)
-                                    Spacer()
                                     Image(systemName: "magnifyingglass")
                                         .foregroundColor(.gray)
                                         .padding()
+                                    Text(TextEndLocation)
+                                        .foregroundColor(.gray)
+                                    Spacer()
                                 }
-                                .padding(12)
-                                .background(.gray.opacity(0.1))
-                                .cornerRadius(8)
-                                .foregroundColor(.primary)
-                                
-                            }
+                                .padding(.horizontal, 12)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .shadow(color: Color.black.opacity(0.5), radius: 4, x: 0, y: 2)
+                                )
+                            }.accentColor(.white)
+
+
                         }
                         List {
                             
@@ -117,6 +119,7 @@ struct NewAlarmView: View {
                 .navigationTitle("New Alarm")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarBackButtonHidden(true)
+//                .navigationBarHidden(true)
 //                .onTapGesture {
 //                    hideKeyboard()
 //                }

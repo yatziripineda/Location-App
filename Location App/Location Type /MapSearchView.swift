@@ -21,26 +21,55 @@ struct MapSearchView: View {
     @Binding var TextEndLocation: String
     @Binding var SelectEndLocation:  Location?
     var body: some View {
-        NavigationStack{
+//        NavigationView{
             VStack{
                 //                VStack{
-                if isPresented{
-                    Button(action: { isPresented.toggle() }) {
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundColor(.gray)
-                                .padding([.top, .bottom, .trailing])
-                            Text("Where do you want to go?")
-                                .foregroundColor(.gray)
-                            Spacer()
+                
+                    HStack{
+                        Button(action: {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            VStack(alignment: .leading){
+                                Image(systemName: "chevron.backward")
+                                    .foregroundColor(.black)
+                                    .padding(.leading)
+                            }
                         }
-                        .padding(.horizontal, 20)
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(10)
-                        .padding(.horizontal, 15)
+                        VStack{
+                            HStack {
+                                Image(systemName: "circle.circle")
+                                    .foregroundColor(.red)
+                                    .padding()
+                                Text("Your location")
+                                    .foregroundColor(.black)
+                                Spacer()
+                            }
+//                            .background(Color.gray.opacity(0.1))
+//                            .cornerRadius(10)
+                            .padding(.horizontal, 15)
+                            
+                            SearchPointView(searchResults: $searchResults, isPresented: $isPresented, Name: $Name)
+//                                if {
+//                                    isPresented.toggle()
+//                                }
+//                            Button(action: { isPresented.toggle() }) {
+//                                HStack {
+//                                    Image(systemName: "magnifyingglass")
+//                                        .foregroundColor(.gray)
+//                                        .padding()
+//                                    Text("Where do you want to go?")
+//                                        .foregroundColor(.gray)
+//                                    Spacer()
+//                                }
+//                                
+//                                .background(Color.gray.opacity(0.1))
+//                                .cornerRadius(10)
+//                                .padding(.horizontal, 15)
+//                            }
+                        }
                     }
-                    
-                    //                }
+                    .padding(.top)
+                if isPresented{
                     ZStack{
                         
                         Map(position: $position, selection: $selectedLocation) {
@@ -86,12 +115,12 @@ struct MapSearchView: View {
                         
                     }
                 }
-                else{
-                    SearchPointView(searchResults: $searchResults, isPresented: $isPresented, Name: $Name)
-                }
+//                else{
+//                    SearchPointView(searchResults: $searchResults, isPresented: $isPresented, Name: $Name)
+//                }
             }
-            .navigationBarHidden(true)
-        }
+            .navigationBarBackButtonHidden(true)
+        //        }
     }
 }
 //

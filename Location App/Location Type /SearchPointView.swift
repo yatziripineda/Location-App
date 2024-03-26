@@ -10,6 +10,7 @@ import MapKit
 struct SearchPointView: View {
     @State private var locationService = LocationService(completer: .init())
     @State private var search: String = ""
+    @State private var showlist: Bool = false
     // 1
     @Binding var searchResults: [SearchResult]
     @Binding var isPresented: Bool 
@@ -22,43 +23,43 @@ struct SearchPointView: View {
                     .foregroundColor(.gray)
                 TextField("Where do you want to go?", text: $search)
                     .autocorrectionDisabled()
-                    // 2
+                // 2
                     .onSubmit {
                         Task {
                             searchResults = (try? await locationService.search(with: search)) ?? []
                         }
                     }
+                
             }
             .modifier(TextFieldGrayBackgroundColor())
-
-            Spacer()
-
-            List {
-                ForEach(locationService.completions) { completion in
-                    // 3
-                    Button(action: { didTapOnCompletion(completion) }) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(completion.title)
-                                .font(.headline)
-                                .fontDesign(.rounded)
-                            Text(completion.subTitle)
-                            // What can we show?
-//                            if let url = completion.url {
-//                                Link(url.absoluteString, destination: url)
-//                                    .lineLimit(1)
-//                            }
+            if showlist || (search != ""){
+                List {
+                    ForEach(locationService.completions) { completion in
+                        // 3
+                        Button(action: { didTapOnCompletion(completion) }) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(completion.title)
+                                    .font(.headline)
+                                    .fontDesign(.rounded)
+                                Text(completion.subTitle)
+                                // What can we show?
+                                //                            if let url = completion.url {
+                                //                                Link(url.absoluteString, destination: url)
+                                //                                    .lineLimit(1)
+                                //                            }
+                            }
                         }
+                        .listRowBackground(Color.clear)
                     }
-                    .listRowBackground(Color.clear)
                 }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
             }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
         }
         .onChange(of: search) {
             locationService.update(queryFragment: search)
         }
-        .padding()
+//        .padding()
         .interactiveDismissDisabled()
         .presentationDetents([.height(200), .large])
         .presentationBackground(.regularMaterial)
@@ -73,7 +74,11 @@ struct SearchPointView: View {
             }
         }
         isPresented.toggle()
+        showlist.toggle()
         Name = completion.title
+//        if search != ""{
+//            isPresented.toggle()
+//        }
         
         
     }
