@@ -16,10 +16,13 @@ struct NewAlarmView: View {
     @State private var selected: Bool = false
     @State private var isEditing = false
     @State private var selectedWeather: WeatherData?
+    @State private var TextStartLocation: String = "Your location"
+    @State private var SelectStartLocation: Location?
+    @State private var TextEndLocation: String = "Where do you want to go?"
+    @State private var SelectEndLocation: Location?
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.modelContext) var modelContext
-//    @EnvironmentObject var weatherDataViewModel: WeatherDataViewModel
     
     @Query private var alarmss: [Alarms]
     @Query private var locations: [Location]
@@ -35,7 +38,7 @@ struct NewAlarmView: View {
     @State var selectedLocation: Location?
 //    @State var selectedWeather: Weather?
     
-    var item: Alarms = Alarms(snooze: false, name: "", activated: true, sound: "Sound1", isWeatherAlarm: 0, weather: WeatherData(temperature: 15, condition: "Cloudy"))
+    var item: Alarms = Alarms(snooze: false, name: "", activated: true, sound: "Sound1", isWeatherAlarm: 0, weather: WeatherData(temperature: 15, condition: "Cloudy"), locationStart: nil)
 //    let weathers = ["Weather 1", "Weather 2", "Weather 3"]
     
     var body: some View {
@@ -45,35 +48,13 @@ struct NewAlarmView: View {
                     Text("Weather").tag(0)
                     Text("Location").tag(1)
                 }.pickerStyle(SegmentedPickerStyle())
-                
-                List {
-                    Section(header: Text("")) {
-                        Toggle("Snooze", isOn: $snooze)
-                        HStack{
-                            Text("Label")
-                            Spacer()
-                            TextField("Alarm", text: $name)
-                                .multilineTextAlignment(.trailing)
-                        }
-                        NavigationLink(destination: SoundsView()) {
-                            Text("Sound")
-                        }
-                    }
-                    
-                        if TypeAlarm == 0{
-                            Section(header: Text("Select")) {
-                                ForEach(weathers, id: \.self) { weather in
-                                    WeatherRow(weather: weather, isSelected: self.selectedWeather == weather)
-                                        .onTapGesture {
-                                            self.selectedWeather = weather
-                                        }
-                                    
-                                }
-                            }
-                        }else{
-                            NavigationLink(destination: MapSearchView()) {
+//                ScrollView {
+                    VStack{
+                        if TypeAlarm != 0{
+                            
+                            NavigationLink(destination: MapSearchView(TextEndLocation: $TextEndLocation, SelectEndLocation: $SelectEndLocation)) {
                                 HStack {
-                                    Text("Where do you want to go?")
+                                    Text(TextEndLocation)
                                         .foregroundColor(.gray)
                                     Spacer()
                                     Image(systemName: "magnifyingglass")
@@ -84,13 +65,39 @@ struct NewAlarmView: View {
                                 .background(.gray.opacity(0.1))
                                 .cornerRadius(8)
                                 .foregroundColor(.primary)
-                           
+                                
+                            }
                         }
+                        List {
+                            
+                            Section(header: Text("")) {
+                                Toggle("Snooze", isOn: $snooze)
+                                HStack{
+                                    Text("Label")
+                                    Spacer()
+                                    TextField("Alarm", text: $name)
+                                        .multilineTextAlignment(.trailing)
+                                }
+                                NavigationLink(destination: SoundsView()) {
+                                    Text("Sound")
+                                }
+                            }
+                            
+                            if TypeAlarm == 0{
+                                Section(header: Text("Select")) {
+                                    ForEach(weathers, id: \.self) { weather in
+                                        WeatherRow(weather: weather, isSelected: self.selectedWeather == weather)
+                                            .onTapGesture {
+                                                self.selectedWeather = weather
+                                            }
+                                        
+                                    }
+                                }
+                            }
                         }
-                    
-                    
-                }
-//                .scrollContentBackground(.hidden)
+                        //                    .listStyle(PlainListStyle())
+                    }
+//                }
                 ZStack{
                     Rectangle()
                         .foregroundColor(.blue)
@@ -105,7 +112,6 @@ struct NewAlarmView: View {
                     .foregroundColor(.white)
                     
                 }
-//                .background(colorScheme == .dark ? .black : .white)
                 
             }.padding()
                 .navigationTitle("New Alarm")
@@ -139,20 +145,16 @@ private extension  NewAlarmView {
 //        item.amount = Double(amountText)!
         modelContext.insert(item)
         print("\(String(describing: item.weather?.condition))")
+//        print(SelectEndLocation[0].location.latitude)
     
 //        selectedWeather?.alarmS_weather?.append(item)
-//        item.acount = selectedAcount
-//        selectedAcount?.items?.append(item)
+        item.locationFinish = SelectEndLocation
+        SelectEndLocation?.alarmS_locationStart?.append(item)
         
     }
 }
 
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        NewAlarmView()
-    }
-}
 
 
 

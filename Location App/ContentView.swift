@@ -10,33 +10,13 @@
 import SwiftUI
 import SwiftData
 
-
-//struct Alarm: Identifiable {
-//    var id = UUID()
-//    
-//    var snooze: Bool
-//    var name: String
-//    var sound: String
-//    var type: Bool
-//    var activated: Bool
-//}
-
-// Crear instancias de Alarm con diferentes configuraciones
-//var alarms: [Alarm] = [
-//    Alarm(snooze: true, name: "Garibaldi", sound: "Sirena", type: false, activated: true),
-//    Alarm(snooze: false, name: "House", sound: "Truenos", type: false, activated: false),
-//    Alarm(snooze: true, name: "School", sound: "Timbre", type: false, activated: true),
-//    Alarm(snooze: true, name: "Ropa", sound: "Timbre", type: true, activated: false)
-//]
-
 struct ContentView: View {
     @StateObject private var viewModel = LocationModel()
-//    @State private var activatedStates = alarms.map { $0.activated }
+    
     @State private var searchText = ""
     @State private var isAddingAlarm = false
     @State private var alarmActivationStates: [PersistentIdentifier: Bool] = [:]
        
-//    @EnvironmentObject var weatherDataViewModel: WeatherDataViewModel
         
     @Environment(\.modelContext) private var modelContext
     

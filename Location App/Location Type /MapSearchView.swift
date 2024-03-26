@@ -9,17 +9,21 @@ import SwiftUI
 import MapKit
 
 struct MapSearchView: View {
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     @State private var position = MapCameraPosition.automatic
-    // 1
     @State private var searchResults = [SearchResult]()
-    //2
     @State private var selectedLocation: SearchResult?
     @State private var isSheetPresented: Bool = true
     @State private var isPresented: Bool = true
+    @State private var Name: String = ""
+    @Binding var TextEndLocation: String
+    @Binding var SelectEndLocation:  Location?
     var body: some View {
         NavigationStack{
             VStack{
-//                VStack{
+                //                VStack{
                 if isPresented{
                     Button(action: { isPresented.toggle() }) {
                         HStack {
@@ -35,41 +39,62 @@ struct MapSearchView: View {
                         .cornerRadius(10)
                         .padding(.horizontal, 15)
                     }
-                
-//                }
-//                if isPresented{
-//                    Map(coordinateRegion: $viewModel.region , showsUserLocation: true)
-//                       .ignoresSafeArea()
-//                       .accentColor(Color(.systemPink))
-//                       .onAppear{
-//                           viewModel.checkIfLocationServicesIsEnabled()
-//                       }
-                    Map(position: $position, selection: $selectedLocation) {
-                        ForEach(searchResults) { result in
-                            Marker(coordinate: result.location) {
-                                Image(systemName: "mappin")
+                    
+                    //                }
+                    ZStack{
+                        
+                        Map(position: $position, selection: $selectedLocation) {
+                            ForEach(searchResults) { result in
+                                Marker(coordinate: result.location) {
+                                    Image(systemName: "mappin")
+                                }
+                                .tag(result)
                             }
-                            .tag(result)
                         }
-                    }
-                    .ignoresSafeArea()
-                    .onChange(of: selectedLocation) {
-                        isSheetPresented = selectedLocation == nil
-                    }
-                    .onChange(of: searchResults) {
-                        if let firstResult = searchResults.first, searchResults.count == 1 {
-                            selectedLocation = firstResult
+                        .ignoresSafeArea()
+                        .onChange(of: selectedLocation) {
+                            isSheetPresented = selectedLocation == nil
+                            
                         }
+                        .onChange(of: searchResults) {
+                            if let firstResult = searchResults.first, searchResults.count == 1 {
+                                selectedLocation = firstResult
+                            }
+                        }
+                        if selectedLocation != nil {
+                            Button(action: {
+                                TextEndLocation = Name
+                                SelectEndLocation?.location1 = Coordinate2D(latitude: (selectedLocation?.location.latitude)!, longitude: (selectedLocation?.location.longitude)!)
+                                self.presentationMode.wrappedValue.dismiss()
+                            }) {
+                                VStack{
+                                    Spacer()
+                                    HStack {
+                                        Text("Select Place")
+                                            .foregroundColor(.white)
+                                        
+                                    }
+                                    .padding(.horizontal, 40)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(8)
+                                    
+                                }
+                                .padding()
+                            }
+                        }
+                        
                     }
                 }
                 else{
-                    SearchPointView(searchResults: $searchResults, isPresented: $isPresented)
+                    SearchPointView(searchResults: $searchResults, isPresented: $isPresented, Name: $Name)
                 }
             }
+            .navigationBarHidden(true)
         }
     }
 }
-
-#Preview {
-    MapSearchView()
-}
+//
+//#Preview {
+//    MapSearchView()
+//}

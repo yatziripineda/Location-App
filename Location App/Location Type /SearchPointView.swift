@@ -13,6 +13,7 @@ struct SearchPointView: View {
     // 1
     @Binding var searchResults: [SearchResult]
     @Binding var isPresented: Bool 
+    @Binding var Name: String
 
     var body: some View {
         VStack {
@@ -72,7 +73,8 @@ struct SearchPointView: View {
             }
         }
         isPresented.toggle()
-//        print("\(completion.title)")
+        Name = completion.title
+        
         
     }
 }
