@@ -11,9 +11,8 @@ struct SearchPointView: View {
     @State private var locationService = LocationService(completer: .init())
     @State private var search: String = ""
     @State private var showlist: Bool = false
-    // 1
     @Binding var searchResults: [SearchResult]
-    @Binding var isPresented: Bool 
+    @Binding var isPresented: Bool
     @Binding var Name: String
 
     var body: some View {
@@ -23,16 +22,18 @@ struct SearchPointView: View {
                     .foregroundColor(.gray)
                 TextField("Where do you want to go?", text: $search)
                     .autocorrectionDisabled()
-                // 2
                     .onSubmit {
                         Task {
                             searchResults = (try? await locationService.search(with: search)) ?? []
                         }
                     }
-                
             }
             .modifier(TextFieldGrayBackgroundColor())
-            if showlist || (search != ""){
+            .onTapGesture {
+                isPresented = false
+                showlist = true
+            }
+            if showlist && (search != "") && (isPresented == false){
                 List {
                     ForEach(locationService.completions) { completion in
                         // 3
@@ -59,7 +60,6 @@ struct SearchPointView: View {
         .onChange(of: search) {
             locationService.update(queryFragment: search)
         }
-//        .padding()
         .interactiveDismissDisabled()
         .presentationDetents([.height(200), .large])
         .presentationBackground(.regularMaterial)
@@ -74,12 +74,8 @@ struct SearchPointView: View {
             }
         }
         isPresented.toggle()
-        showlist.toggle()
+        showlist = false
         Name = completion.title
-//        if search != ""{
-//            isPresented.toggle()
-//        }
-        
         
     }
 }
